@@ -2,7 +2,8 @@ from openai import OpenAI
 import streamlit as st
 import time
 
-assistant_id = 'asst_NxT4cLM8DewEp90LjrdZ3Y1T'
+assistant_id = st.secrets["assistant_id"]
+thread_id = st.secrets["thread_id"]
 
 with st.sidebar:
     st.link_button("더 좋은 컨텐츠를 위해 후원하기", "https://toss.me/kimfl")
@@ -15,7 +16,7 @@ with st.sidebar:
 
     client = OpenAI(api_key=openai_api_key)
 
-    thread_id = st.text_input("Thread ID", value='thread_No9aaatklKBdtUst5FUBHVq7')
+    thread_id = st.text_input("Thread ID", value=thread_id)
 
     thread_make_btn = st.button("Create a new thread")
     if thread_make_btn:
